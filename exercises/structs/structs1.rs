@@ -11,9 +11,10 @@ struct ColorClassicStruct {
     pub green:i32,
     pub red:i32,
     pub blue:i32,
+
 }
 
-struct ColorTupleStruct(/* TODO: Something goes here */);
+struct ColorTupleStruct(i32,i32,i32);
 
 #[derive(Debug)]
 struct UnitLikeStruct;
@@ -38,6 +39,7 @@ mod tests {
 
     #[test]
     fn tuple_structs() {
+        let green: ColorTupleStruct=ColorTupleStruct(255,0,0);
         
         assert_eq!(green.0, 0);
         assert_eq!(green.1, 255);
@@ -47,7 +49,7 @@ mod tests {
     #[test]
     fn unit_structs() {
         // TODO: Instantiate a unit-like struct!
-        // let unit_like_struct =
+        let unit_like_struct =UnitLikeStruct();
         let message = format!("{:?}s are fun!", unit_like_struct);
 
         assert_eq!(message, "UnitLikeStructs are fun!");
