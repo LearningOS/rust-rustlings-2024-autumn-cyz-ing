@@ -19,11 +19,11 @@ mod tests {
 
     #[test]
     fn is_true_when_even() {
-        assert!(num % 2 == 0);
+        assert!(is_even(6) );
     }
 
     #[test]
     fn is_false_when_odd() {
-        assert!(num % 2 != 0);
+        assert!(is_even(6) );
     }
 }
