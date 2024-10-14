@@ -8,6 +8,7 @@
 // hint.
 
 
+
 struct Foo {
     a: u128,
     b: Option<String>,
@@ -21,11 +22,11 @@ unsafe fn raw_pointer_to_box(ptr: *mut Foo) -> Box<Foo> {
     // simply reconstruct the box from that pointer.
     let mut ret: Box<Foo> = unsafe { Box::from_raw(ptr) };
     ret.b= Some(String::from("hello"));
+    ret
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
+mod tests {use super::*;
     use std::time::Instant;
 
     #[test]
@@ -39,5 +40,9 @@ mod tests {
         let ptr_2 = &ret.a as *const u128 as usize;
 
         assert!(ptr_1 == ptr_2);
-        assert!(ret.b == Some("hello".to_owned()));
-    } }
+        assert!(ret.b == Some("hello".to_owned()));}
+    use super::*;
+    use std::time::Instant;
+
+   
+    }
