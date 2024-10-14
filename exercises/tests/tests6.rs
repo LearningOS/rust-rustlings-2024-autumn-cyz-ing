@@ -8,7 +8,6 @@
 // hint.
 
 
-
 struct Foo {
     a: u128,
     b: Option<String>,
@@ -26,7 +25,8 @@ unsafe fn raw_pointer_to_box(ptr: *mut Foo) -> Box<Foo> {
 }
 
 #[cfg(test)]
-mod tests {use super::*;
+mod tests {
+    use super::*;
     use std::time::Instant;
 
     #[test]
@@ -40,9 +40,6 @@ mod tests {use super::*;
         let ptr_2 = &ret.a as *const u128 as usize;
 
         assert!(ptr_1 == ptr_2);
-        assert!(ret.b == Some("hello".to_owned()));}
-    use super::*;
-    use std::time::Instant;
-
-   
+        assert!(ret.b == Some("hello".to_owned()));
     }
+}
